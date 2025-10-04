@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 第一層：設計背景和邊框 -->
     <item>
         <shape>
             <stroke
@@ -13,10 +14,12 @@
                 android:height="30dp" />
         </shape>
     </item>
-    <item>
-        <bitmap
-            android:gravity="end"
-            android:src="@drawable/outline_arrow_drop_down_24"
-            android:antialias="true"/>
+    <!-- 第二層：設計下拉箭頭圖示 -->
+    <item
+        android:drawable="@drawable/spinner_down_arrow_finger"
+        android:width="24dp"
+        android:height="24dp"
+        android:gravity="end|center_vertical"
+        android:right="5dp">
     </item>
 </layer-list>

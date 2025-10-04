@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 建立一個字串陣列來存放 Spinner 的文字 -->
+    <string-array name="spinner_item_text">
+        <item>豹</item>
+        <item>豹豹</item>
+        <item>豹豹豹</item>
+        <item>豹豹豹豹</item>
+    </string-array>
+
+    <!-- 建立一個整數陣列 (TypedArray) 來存放圖片資源的 ID -->
+    <array name="spinner_item_image">
+        <item>@drawable/pic1</item>
+        <item>@drawable/pic2</item>
+        <item>@drawable/pic3</item>
+        <item>@drawable/pic4</item>
+    </array>
+</resources>
