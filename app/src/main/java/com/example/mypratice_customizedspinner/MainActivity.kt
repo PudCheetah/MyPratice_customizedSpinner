@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         mSpinnerData.add(SpinnerItemDataClass("C", "豹豹豹", R.drawable.pic3))
         mSpinnerData.add(SpinnerItemDataClass("D", "豹豹豹豹", R.drawable.pic4))
 
-        val adapter = SpinnerAdapter(this, mSpinnerData)
+        val adapter = SpinnerAdapter_advance(this, mSpinnerData)
         binding.spinMySpin.adapter = adapter
     }
 
@@ -40,16 +40,12 @@ class MainActivity : AppCompatActivity() {
      */
     fun adapterSet_2(){
         mSpinnerData.clear() // 先清空舊資料
-
         // 1. 從 XML 讀取文字陣列
         val names = resources.getStringArray(R.array.spinner_item_text)
-
         // 2. 從 XML 讀取圖片資源陣列
         val images = resources.obtainTypedArray(R.array.spinner_item_image)
-
         // 3. 從 XML 讀取文字資源陣列
         val messages = resources.getStringArray(R.array.spinner_item_message)
-
         // 4. 迴圈遍歷，將文字和圖片組合成 SpinnerItemDataClass 物件
         for (i in names.indices) {
             val name = names[i]
@@ -60,12 +56,10 @@ class MainActivity : AppCompatActivity() {
                 mSpinnerData.add(SpinnerItemDataClass(name, message,imageResId))
             }
         }
-
         // 5. 釋放 TypedArray 資源，這是一個非常重要的步驟，能避免記憶體洩漏
         images.recycle()
-
         // 6. 建立並設定 Adapter
-        val adapter = SpinnerAdapter(this, mSpinnerData)
+        val adapter = SpinnerAdapter_advance(this, mSpinnerData)
         binding.spinMySpin.adapter = adapter
     }
 }

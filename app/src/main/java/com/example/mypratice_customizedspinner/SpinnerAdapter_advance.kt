@@ -10,12 +10,11 @@ import androidx.viewbinding.ViewBinding
 import com.example.mypratice_customizedspinner.databinding.SpinnerCollapsedItemViewBinding
 import com.example.mypratice_customizedspinner.databinding.SpinnerDropdownItemViewBinding
 
-// 自定義 Adapter，繼承自 ArrayAdapter
-class SpinnerAdapter(context: Context, data: ArrayList<SpinnerItemDataClass>) :
-    // 呼叫父類別建構式，由於我們手動處理所有 View，故 resource ID 傳 0，避免混淆
-    ArrayAdapter<SpinnerItemDataClass>(context, 0, data) {
+// 自定義 Adapter，繼承自 ArrayAdapter(進階寫法)
+class SpinnerAdapter_advance(context: Context, data: ArrayList<SpinnerItemDataClass>) :
+    ArrayAdapter<SpinnerItemDataClass>(context, 0, data) {  // 呼叫父類別建構式，由於我們手動處理所有 View，故 resource ID 傳 0，避免混淆
 
-    private val TAG = "MyTag" + SpinnerAdapter::class.java.simpleName
+    private val TAG = "MyTag" + SpinnerAdapter_advance::class.java.simpleName
 
     /**
      * @param B 泛型，使用 reified 關鍵字，使其類型在運行時得以保留，從而可以進行安全的類型檢查。
@@ -33,7 +32,6 @@ class SpinnerAdapter(context: Context, data: ArrayList<SpinnerItemDataClass>) :
         val holder = convertView?.tag
         if (holder is B) {
             // 如果是，代表 View 可以被安全地重複使用，直接返回即可。
-            // 這裡因為進行了 `is B` 的檢查，Kotlin 可以智能轉型(smart cast)，無需不安全的 `as`
             return convertView!! to holder
         }
 
