@@ -9,9 +9,6 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    // 這個 ArrayList 可以共用，在不同方法中被清空和填充
-    private val mSpinnerData = ArrayList<SpinnerItemDataClass>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -25,6 +22,7 @@ class MainActivity : AppCompatActivity() {
      * 方法一：資料來源寫死在 Kotlin 程式碼中
      */
     fun adapterSet(){
+        val mSpinnerData = ArrayList<SpinnerItemDataClass>()
         mSpinnerData.clear() // 先清空舊資料
         mSpinnerData.add(SpinnerItemDataClass("A", "豹",  R.drawable.pic1))
         mSpinnerData.add(SpinnerItemDataClass("B", "豹豹", R.drawable.pic2))
@@ -39,7 +37,7 @@ class MainActivity : AppCompatActivity() {
      * 方法二：從 res/values/spinner_items.xml 讀取資料
      */
     fun adapterSet_2(){
-        mSpinnerData.clear() // 先清空舊資料
+        val mSpinnerData = ArrayList<SpinnerItemDataClass>()
         // 1. 從 XML 讀取文字陣列
         val names = resources.getStringArray(R.array.spinner_item_text)
         // 2. 從 XML 讀取圖片資源陣列
